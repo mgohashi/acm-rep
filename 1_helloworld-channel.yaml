@@ -1,0 +1,11 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  labels:
+    app: helloworld-app
+  name: helloworld-channel
+  namespace: test-app-ch
+spec:
+  insecureSkipVerify: true
+  pathname: https://raw.githubusercontent.com/mgohashi/helm-repo/master
+  type: HelmRepo

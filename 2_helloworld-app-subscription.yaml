@@ -1,0 +1,20 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  labels:
+    app: helloworld-app
+    apps.open-cluster-management.io/reconcile-rate: High
+  name: helloworld-app-subscription
+  namespace: test-app
+spec:
+  channel: test-app-ch/helloworld-channel
+  name: sample-acm-helm-app
+  packageFilter:
+    version: 0.1.5
+  packageOverrides:
+  - packageAlias: sample-acm-helm-app
+    packageName: sample-acm-helm-app
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: helloworld-placement
